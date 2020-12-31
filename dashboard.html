@@ -234,7 +234,7 @@
                                  <!--<div class="flot-data">
                                     <div id="CrmDashChart" class="flot-chart"></div>
                                  </div>-->
-                                 <div id="chartline" class="h-100"></div>
+                                 <div id="chartline"></div>
                               </div>
                               <!--end col-->
                               <div class="col-lg-4">
@@ -267,7 +267,7 @@
                         <!--end card-header-->
                         <div class="card-body">
                            <div class="row">
-                              <div class="col-lg-3 border-right">
+                              <div class="col-lg-4 border-right">
                                  <span class="badge badge-soft-primary float-right">
                                     <i class="far fa-arrow-alt-circle-up mr-1"></i>30.2%
                                  </span>
@@ -278,44 +278,16 @@
                                     </div>
                                     <!--end media-body-->
                                  </div>
-                                 <div class="apexchart-wrapper mt-3">
-                                    <div id="dash_spark_2" class="chart-gutters"></div>
+
+                                 <div class="d-flex w-100">
+                                    <div class="flot-data">
+                                       <div id="CrmDashChart" class="flot-chart"></div>
+                                    </div>
                                  </div>
                               </div>
                               <!--end col-->
-                              <div class="col-lg-9">
-                                 <div class="flot-data">
-                                    <div id="CrmDashChart2" class="flot-chart"></div>
-                                 </div>
-                              </div>
-                              <!--end col-->
-                           </div>
-                           <!--end row-->
-                        </div>
-                        <!--end card-body-->
-                     </div>
-                     <!--end card-->
-                  </div>
-                  <!--end col-->
-               </div>
-               <!--end row-->
-               
-               <div class="row">
-                  <div class="col-12">
-                     <div class="card">
-                        <!--<div class="card-header">
-                           <div class="row align-items-center">
-                              <div class="col">
-                                 <h4 class="card-title">Chart</h4>
-                              </div>
-                              <!--end col-->
-                           <!--</div>
-                           <!--end row-->
-                        <!--</div>-->
-                        <!--end card-header-->
-                        <div class="card-body">
-                           <div class="row">
-                              <div class="col-lg-3 border-right">
+
+                              <div class="col-lg-4 border-right">
                                  <span class="badge badge-soft-primary float-right">
                                     <i class="far fa-arrow-alt-circle-up mr-1"></i>30.2%
                                  </span>
@@ -326,45 +298,16 @@
                                     </div>
                                     <!--end media-body-->
                                  </div>
-                                 <div class="apexchart-wrapper mt-3">
-                                    <div id="dash_spark_3" class="chart-gutters"></div>
+
+                                 <div class="d-flex w-100">
+                                    <div class="flot-data">
+                                       <div id="CrmDashChart1" class="flot-chart"></div>
+                                    </div>
                                  </div>
                               </div>
                               <!--end col-->
-                              <div class="col-lg-9">
-                                 <div class="flot-data">
-                                    <div id="CrmDashChart3" class="flot-chart"></div>
-                                 </div>
-                              </div>
-                              <!--end col-->
-                           </div>
-                           <!--end row-->
-                        </div>
-                        <!--end card-body-->
-                     </div>
-                     <!--end card-->
-                  </div>
-                  <!--end col-->
-               </div>
-               <!--end row-->
-               
-               <div class="row">
-                  <div class="col-12">
-                     <div class="card">
-                        <!--<div class="card-header">
-                           <div class="row align-items-center">
-                              <div class="col">
-                                 <h4 class="card-title">Chart</h4>
-                              </div>
-                              <!--end col-->
-                           <!--</div>
-                           <!--end row-->
-                        <!--</div>-->
-                        <!--end card-header-->
-                        <!--end card-header-->
-                        <div class="card-body">
-                           <div class="row">
-                              <div class="col-lg-3 border-right">
+
+                              <div class="col-lg-4">
                                  <span class="badge badge-soft-primary float-right">
                                     <i class="far fa-arrow-alt-circle-up mr-1"></i>30.2%
                                  </span>
@@ -375,17 +318,15 @@
                                     </div>
                                     <!--end media-body-->
                                  </div>
-                                 <div class="apexchart-wrapper mt-3">
-                                    <div id="dash_spark_4" class="chart-gutters"></div>
+
+                                 <div class="d-flex w-100">
+                                    <div class="flot-data">
+                                       <div id="CrmDashChart2" class="flot-chart"></div>
+                                    </div>
                                  </div>
                               </div>
                               <!--end col-->
-                              <div class="col-lg-9">
-                                 <div class="flot-data">
-                                    <div id="CrmDashChart4" class="flot-chart"></div>
-                                 </div>
-                              </div>
-                              <!--end col-->
+
                            </div>
                            <!--end row-->
                         </div>
@@ -397,30 +338,6 @@
                </div>
                <!--end row-->
                
-               <div class="row">
-                  <div class="col-lg-12">
-                     <div class="card">
-                        <div class="card-header">
-                           <div class="row align-items-center">
-                              <div class="col">
-                                 <h4 class="card-title">OVERALL</h4>
-                              </div>
-                              <!--end col-->
-                           </div>
-                           <!--end row-->
-                        </div>
-                        <!--end card-header-->
-                        <div class="card-body">
-                        </div>
-                        <!--end card-body-->
-                     </div>
-                     <!--end  card-->
-                  </div>
-                  <!--end col-->
-                  
-                  <!--end col-->
-               </div>
-               <!--end row-->
             </div>
             <!-- container -->
             <footer class="footer text-center text-sm-left">&copy; 2020 FPT Coporation</footer>
@@ -494,6 +411,76 @@
 
          // Create chart instance
          var chart = am4core.create("chartline", am4charts.XYChart);
+
+         // Add percent sign to all numbers
+         chart.numberFormatter.numberFormat = "#.#'%'";
+
+         // Add data
+         chart.data = [{
+             "country": "USA",
+             "year2004": 3.5,
+             "year2005": 4.2
+         }, {
+             "country": "UK",
+             "year2004": 1.7,
+             "year2005": 3.1
+         }, {
+             "country": "Canada",
+             "year2004": 2.8,
+             "year2005": 2.9
+         }, {
+             "country": "Japan",
+             "year2004": 2.6,
+             "year2005": 2.3
+         }, {
+             "country": "France",
+             "year2004": 1.4,
+             "year2005": 2.1
+         }, {
+             "country": "Brazil",
+             "year2004": 2.6,
+             "year2005": 4.9
+         }];
+
+         // Create axes
+         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+         categoryAxis.dataFields.category = "country";
+         categoryAxis.renderer.grid.template.location = 0;
+         categoryAxis.renderer.minGridDistance = 30;
+
+         var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+         valueAxis.title.text = "GDP growth rate";
+         valueAxis.title.fontWeight = 800;
+
+         // Create series
+         var series = chart.series.push(new am4charts.ColumnSeries());
+         series.dataFields.valueY = "year2004";
+         series.dataFields.categoryX = "country";
+         series.clustered = false;
+         series.tooltipText = "GDP grow in {categoryX} (2004): [bold]{valueY}[/]";
+
+         var series2 = chart.series.push(new am4charts.ColumnSeries());
+         series2.dataFields.valueY = "year2005";
+         series2.dataFields.categoryX = "country";
+         series2.clustered = false;
+         series2.columns.template.width = am4core.percent(50);
+         series2.tooltipText = "GDP grow in {categoryX} (2005): [bold]{valueY}[/]";
+
+         chart.cursor = new am4charts.XYCursor();
+         chart.cursor.lineX.disabled = true;
+         chart.cursor.lineY.disabled = true;
+
+         }); // end am4core.ready()
+
+         //Chart Line
+         am4core.ready(function() {
+
+         // Themes begin
+         am4core.useTheme(am4themes_animated);
+         // Themes end
+
+         // Create chart instance
+         var chart = am4core.create("chartline1", am4charts.XYChart);
 
          // Add percent sign to all numbers
          chart.numberFormatter.numberFormat = "#.#'%'";
