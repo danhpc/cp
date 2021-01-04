@@ -393,7 +393,7 @@
 			am4core.useTheme(am4themes_animated);
 			// Themes end
 
-			var data = [{ name: "FRT", value: 10 }, { name: "FTEL", value: 10 }, { name: "FO", value: 10 }, { name: "X", value: 2, sets: ["FRT", "FTEL"] }, { name: "Y", value: 2, sets: ["FRT", "FO"] }, { name: "Z", value: 2, sets: ["FTEL", "FO"] }, { name: "FPT ID", value: 1, sets: ["FRT", "FTEL", "FO"] }];
+			var data = [{ name: "FRT", value: 10 }, { name: "FTEL", value: 10 }, { name: "FO", value: 10 }, { name: "FRT & FTEL", value: 2, sets: ["FRT", "FTEL"] }, { name: "FO & FRT", value: 2, sets: ["FRT", "FO"] }, { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"] }, { name: "", value: 1, sets: ["FRT", "FTEL", "FO"] }];
 
 			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
 			var series = chart.series.push(new am4plugins_venn.VennSeries())
