@@ -292,8 +292,8 @@
                                  </div>
 
                                  <div class="w-100">
-                                    <div class="flot-data">
-                                       <div id="CrmDashChart" class="flot-chart"></div>
+                                    <div class="chart-demo">
+                                       <div id="apex_line2" class="apex-charts"></div>
                                     </div>
                                  </div>
                               </div>
@@ -312,8 +312,8 @@
                                  </div>
 
                                  <div class="w-100">
-                                    <div class="flot-data">
-                                       <div id="CrmDashChart1" class="flot-chart"></div>
+                                    <div class="chart-demo">
+                                       <div id="apex_line21" class="apex-charts"></div>
                                     </div>
                                  </div>
                               </div>
@@ -332,8 +332,8 @@
                                  </div>
 
                                  <div class="w-100">
-                                    <div class="flot-data">
-                                       <div id="CrmDashChart2" class="flot-chart"></div>
+                                    <div class="chart-demo">
+                                       <div id="apex_line22" class="apex-charts"></div>
                                     </div>
                                  </div>
                               </div>
@@ -369,6 +369,9 @@
       <script src="js/js-moment.js"></script>
       <script src="js/daterangepicker-daterangepicker.js"></script>
       <script src="js/apex-charts-apexcharts.min.js"></script>
+      <script src="js/irregular-data-series.js"></script>
+      <script src="js/ohlc.js"></script>
+      <script src="js/jquery.apexcharts.init.js"></script>
       <script src="js/flot-chart-jquery.canvaswrapper.js"></script>
       <script src="js/flot-chart-jquery.colorhelpers.js"></script>
       <script src="js/flot-chart-jquery.flot.js"></script>
@@ -397,7 +400,17 @@
    			am4core.useTheme(am4themes_animated);
    			// Themes end
 
-   			var data = [{ name: "FRT", value: 10 }, { name: "FTEL", value: 10 }, { name: "FO", value: 10 }, { name: "FRT & FTEL", value: 2, sets: ["FRT", "FTEL"] }, { name: "FO & FRT", value: 2, sets: ["FRT", "FO"] }, { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"] }, { name: "GENERAL", value: 1, sets: ["FRT", "FTEL", "FO"] }];
+   			var data = [
+               { name: "FRT", value: 10 },
+               { name: "FTEL", value: 18 },
+               { name: "FO", value: 25 },
+
+               { name: "FRT & FTEL", value: 1, sets: ["FRT", "FTEL"]},
+               { name: "FO & FRT", value: 4, sets: ["FRT", "FO"] },
+               { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"]},
+
+               { name: "GENERAL", value: 1, sets: ["FRT", "FTEL", "FO"]}
+            ];
 
    			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
    			var series = chart.series.push(new am4plugins_venn.VennSeries())
@@ -409,12 +422,12 @@
    			series.dataFields.value = "value";
    			series.dataFields.intersections = "sets";
    			series.data = data;
+            series.slices.template.tooltipText = "{category}: [bold]{value}[/]";
 
    			chart.legend = new am4charts.Legend();
    			chart.legend.marginTop = 40; 
             chart.legend.align = "right";
             chart.legend.position = "right";
-
 
             //Chart Line
             // Themes begin
@@ -496,7 +509,7 @@
                valueAxis.min = 0;
                //valueAxis.renderer.labels.template.disabled = true;
                valueAxis.max = 250;
-               valueAxis.strictMinMax = true;
+               //valueAxis.strictMinMax = true;
                valueAxis.renderer.minGridDistance = 30;
 
                valueAxis.extraMax = 0.1;
@@ -504,7 +517,7 @@
 
                // Set up valueAxis title 
                valueAxis.paddingLeft = -20;
-               valueAxis.paddingRight = 30;
+               valueAxis.paddingRight = 40;
                valueAxis.layout = "absolute";             
                valueAxis.title.rotation = 0;
                valueAxis.title.align = "left";
