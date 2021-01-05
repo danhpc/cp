@@ -225,7 +225,7 @@
                         <!--end card-header-->
                         <div class="card-body">
                            <div class="row">
-                              <div class="col-lg-8 border-right">
+                              <div class="col-lg-6 border-right">
                                  <!--<span class="badge badge-soft-primary float-right">
                                     <i class="far fa-arrow-alt-circle-up mr-1"></i>30.2%
                                  </span>
@@ -245,7 +245,7 @@
                                  <div id="chartline"></div>
                               </div>
                               <!--end col-->
-                              <div class="col-lg-4">
+                              <div class="col-lg-6">
                                  <div id="chartdiv"></div>
                               </div>
                               <!--end col-->
@@ -389,419 +389,316 @@
          //Chart Div
 			am4core.ready(function() {
 
-			// Themes begin
-			am4core.useTheme(am4themes_animated);
-			// Themes end
+   			// Themes begin
+   			am4core.useTheme(am4themes_animated);
+   			// Themes end
 
-			var data = [{ name: "FRT", value: 10 }, { name: "FTEL", value: 10 }, { name: "FO", value: 10 }, { name: "FRT & FTEL", value: 2, sets: ["FRT", "FTEL"] }, { name: "FO & FRT", value: 2, sets: ["FRT", "FO"] }, { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"] }, { name: "", value: 1, sets: ["FRT", "FTEL", "FO"] }];
+   			var data = [{ name: "FRT", value: 10 }, { name: "FTEL", value: 10 }, { name: "FO", value: 10 }, { name: "FRT & FTEL", value: 2, sets: ["FRT", "FTEL"] }, { name: "FO & FRT", value: 2, sets: ["FRT", "FO"] }, { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"] }, { name: "", value: 1, sets: ["FRT", "FTEL", "FO"] }];
 
-			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
-			var series = chart.series.push(new am4plugins_venn.VennSeries())
+   			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
+   			var series = chart.series.push(new am4plugins_venn.VennSeries())
 
-			series.dataFields.category = "name";
-			series.dataFields.value = "value";
-			series.dataFields.intersections = "sets";
-			series.data = data;
+   			series.dataFields.category = "name";
+   			series.dataFields.value = "value";
+   			series.dataFields.intersections = "sets";
+   			series.data = data;
 
-			chart.legend = new am4charts.Legend();
-			chart.legend.marginTop = 40;
+   			chart.legend = new am4charts.Legend();
+   			chart.legend.marginTop = 40; 
+            chart.legend.align = "right";
+            chart.legend.position = "right";
 
-
-			}); // end am4core.ready()
-
-
-         //Chart Line
-         //am4core.ready(function() {
-
-            // Themes begin
-            //am4core.useTheme(am4themes_animated);
-            // Themes end
-
-            // Create chart instance
-            //var chart = am4core.create("chartline", am4charts.XYChart);
-
-            // Add percent sign to all numbers
-            //chart.numberFormatter.numberFormat = "#.#'%'";
-
-            // Add data
-            //chart.data = [{
-                //"country": "USA",
-                //"year2004": 3.5,
-
-                 //"namerica": 2.5,
-                 //"asia": 2.1,
-            //}, {
-                //"country": "UK",
-                //"year2004": 1.7,
-
-                 //"namerica": 2.7,
-                 //"asia": 2.2,
-            //}, {
-                //"country": "Canada",
-                //"year2004": 2.8,
-
-                 //"namerica": 2.5,
-                 //"asia": 2.1,
-            //}, {
-                //"country": "Japan",
-                //"year2004": 2.6,
-
-                //"namerica": 2.7,
-               //"asia": 2.2,
-            //}, {
-                //"country": "France",
-                //"year2004": 1.4,
-
-                //"namerica": 2.5,
-                //"asia": 2.1,
-            //}, {
-                //"country": "Brazil",
-                //"year2004": 2.6,
-
-                //"namerica": 2.7,
-                //"asia": 2.2,
-            //}];
-
-            // Create axes
-            //var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            //categoryAxis.dataFields.category = "country";
-            //categoryAxis.renderer.grid.template.location = 0;
-            //categoryAxis.renderer.minGridDistance = 30;
-
-            //var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            //valueAxis.title.text = "GDP growth rate";
-            //valueAxis.title.fontWeight = 800;
-
-            // Create series
-            //var series = chart.series.push(new am4charts.ColumnSeries());
-            //series.dataFields.valueY = "year2004";
-            //series.dataFields.categoryX = "country";
-            //series.clustered = false;
-            //series.tooltipText = "GDP grow in {categoryX} (2004): [bold]{valueY}[/]";
-
-            //var series2 = chart.series.push(new am4charts.ColumnSeries());
-              //series2.name = "North America";
-              //series2.dataFields.valueY = "namerica";
-              //series2.dataFields.categoryX = "country";
-              //series2.sequencedInterpolation = true;
-              //series2.clustered = false;
-              
-              // Make it stacked
-              //series2.stacked = true;
-              
-              
-              // Configure columns
-              //series2.columns.template.width = am4core.percent(60);
-              //series2.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
-
-              // Add label
-              //var labelBullet = series2.bullets.push(new am4charts.LabelBullet());
-              //labelBullet.label.text = "{valueY}";
-              //labelBullet.locationY = 0.5;
-              //labelBullet.label.hideOversized = true;
-
-              //var series3 = chart.series.push(new am4charts.ColumnSeries());
-              //series3.name = "Asia-Pacific";
-              //series3.dataFields.valueY = "asia";
-              //series3.dataFields.categoryX = "country";
-              //series3.sequencedInterpolation = true;
-              //series3.clustered = false;
-              
-              /// Make it stacked
-              //series3.stacked = true;
-              
-              
-              // Configure columns
-              //series3.columns.template.width = am4core.percent(60);
-              //series3.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
-
-              // Add label
-              //var labelBullet = series3.bullets.push(new am4charts.LabelBullet());
-              //labelBullet.label.text = "{valueY}";
-              //labelBullet.locationY = 0.5;
-              //labelBullet.label.hideOversized = true;
+   		}); // end am4core.ready()
 
 
-            //function createSeries(field, name) {
-     
-              // Set up series
-              //var series2 = chart.series.push(new am4charts.ColumnSeries());
-              //series2.name = name;
-              //series2.dataFields.valueY = field;
-              //series2.dataFields.categoryX = "country";
-              //series2.sequencedInterpolation = true;
-              //series2.clustered = false;
-              
-              // Make it stacked
-              //series2.stacked = true;
-              
-              
-              // Configure columns
-              //series2.columns.template.width = am4core.percent(60);
-              //series2.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+            //Chart Line
+            //am4core.ready(function() {
 
-              // Add label
-              //var labelBullet = series2.bullets.push(new am4charts.LabelBullet());
-              //labelBullet.label.text = "{valueY}";
-              //labelBullet.locationY = 0.5;
-              //labelBullet.label.hideOversized = true;
-            
-              //return series2;
-            //}
-            //createSeries("namerica", "North America");
-            //createSeries("asia", "Asia-Pacific");
+               // Themes begin
+               //am4core.useTheme(am4themes_animated);
+               // Themes end
 
-            /*
-            var series2 = chart.series.push(new am4charts.ColumnSeries());
-            series2.dataFields.valueY = "year2005";
-            series2.dataFields.categoryX = "country";
-            series2.clustered = false;
-            series2.columns.template.width = am4core.percent(50);
-            series2.tooltipText = "GDP grow in {categoryX} (2005): [bold]{valueY}[/]";
-            */
-            //chart.cursor = new am4charts.XYCursor();
-            //chart.cursor.lineX.disabled = true;
-            //chart.cursor.lineY.disabled = true;
+               // Create chart instance
+               //var chart = am4core.create("chartline", am4charts.XYChart);
 
-         //}); // end am4core.ready()
+               // Add percent sign to all numbers
+               //chart.numberFormatter.numberFormat = "#.#'%'";
+
+               // Add data
+               //chart.data = [{
+                   //"country": "USA",
+                   //"year2004": 3.5,
+
+                    //"namerica": 2.5,
+                    //"asia": 2.1,
+               //}, {
+                   //"country": "UK",
+                   //"year2004": 1.7,
+
+                    //"namerica": 2.7,
+                    //"asia": 2.2,
+               //}, {
+                   //"country": "Canada",
+                   //"year2004": 2.8,
+
+                    //"namerica": 2.5,
+                    //"asia": 2.1,
+               //}, {
+                   //"country": "Japan",
+                   //"year2004": 2.6,
+
+                   //"namerica": 2.7,
+                  //"asia": 2.2,
+               //}, {
+                   //"country": "France",
+                   //"year2004": 1.4,
+
+                   //"namerica": 2.5,
+                   //"asia": 2.1,
+               //}, {
+                   //"country": "Brazil",
+                   //"year2004": 2.6,
+
+                   //"namerica": 2.7,
+                   //"asia": 2.2,
+               //}];
+
+               // Create axes
+               //var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+               //categoryAxis.dataFields.category = "country";
+               //categoryAxis.renderer.grid.template.location = 0;
+               //categoryAxis.renderer.minGridDistance = 30;
+
+               //var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+               //valueAxis.title.text = "GDP growth rate";
+               //valueAxis.title.fontWeight = 800;
+
+               // Create series
+               //var series = chart.series.push(new am4charts.ColumnSeries());
+               //series.dataFields.valueY = "year2004";
+               //series.dataFields.categoryX = "country";
+               //series.clustered = false;
+               //series.tooltipText = "GDP grow in {categoryX} (2004): [bold]{valueY}[/]";
+
+               //var series2 = chart.series.push(new am4charts.ColumnSeries());
+                 //series2.name = "North America";
+                 //series2.dataFields.valueY = "namerica";
+                 //series2.dataFields.categoryX = "country";
+                 //series2.sequencedInterpolation = true;
+                 //series2.clustered = false;
+                 
+                 // Make it stacked
+                 //series2.stacked = true;
+                 
+                 
+                 // Configure columns
+                 //series2.columns.template.width = am4core.percent(60);
+                 //series2.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+                 // Add label
+                 //var labelBullet = series2.bullets.push(new am4charts.LabelBullet());
+                 //labelBullet.label.text = "{valueY}";
+                 //labelBullet.locationY = 0.5;
+                 //labelBullet.label.hideOversized = true;
+
+                 //var series3 = chart.series.push(new am4charts.ColumnSeries());
+                 //series3.name = "Asia-Pacific";
+                 //series3.dataFields.valueY = "asia";
+                 //series3.dataFields.categoryX = "country";
+                 //series3.sequencedInterpolation = true;
+                 //series3.clustered = false;
+                 
+                 /// Make it stacked
+                 //series3.stacked = true;
+                 
+                 
+                 // Configure columns
+                 //series3.columns.template.width = am4core.percent(60);
+                 //series3.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+                 // Add label
+                 //var labelBullet = series3.bullets.push(new am4charts.LabelBullet());
+                 //labelBullet.label.text = "{valueY}";
+                 //labelBullet.locationY = 0.5;
+                 //labelBullet.label.hideOversized = true;
+
+
+               //function createSeries(field, name) {
+        
+                 // Set up series
+                 //var series2 = chart.series.push(new am4charts.ColumnSeries());
+                 //series2.name = name;
+                 //series2.dataFields.valueY = field;
+                 //series2.dataFields.categoryX = "country";
+                 //series2.sequencedInterpolation = true;
+                 //series2.clustered = false;
+                 
+                 // Make it stacked
+                 //series2.stacked = true;
+                 
+                 
+                 // Configure columns
+                 //series2.columns.template.width = am4core.percent(60);
+                 //series2.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+
+                 // Add label
+                 //var labelBullet = series2.bullets.push(new am4charts.LabelBullet());
+                 //labelBullet.label.text = "{valueY}";
+                 //labelBullet.locationY = 0.5;
+                 //labelBullet.label.hideOversized = true;
+               
+                 //return series2;
+               //}
+               //createSeries("namerica", "North America");
+               //createSeries("asia", "Asia-Pacific");
+
+               /*
+               var series2 = chart.series.push(new am4charts.ColumnSeries());
+               series2.dataFields.valueY = "year2005";
+               series2.dataFields.categoryX = "country";
+               series2.clustered = false;
+               series2.columns.template.width = am4core.percent(50);
+               series2.tooltipText = "GDP grow in {categoryX} (2005): [bold]{valueY}[/]";
+               */
+               //chart.cursor = new am4charts.XYCursor();
+               //chart.cursor.lineX.disabled = true;
+               //chart.cursor.lineY.disabled = true;
+
+            //}); // end am4core.ready()
 
 
             am4core.ready(function() {
 
-            // Themes begin
-            am4core.useTheme(am4themes_animated);
-            // Themes end
+               // Themes begin
+               am4core.useTheme(am4themes_animated);
+               // Themes end
 
-            // Create chart instance
-            var chart = am4core.create("chartline", am4charts.XYChart);
+               // Create chart instance
+               var chart = am4core.create("chartline", am4charts.XYChart);
 
+               chart.maskBullets = false;
+               chart.numberFormatter.numberFormat = "#.#";
 
-            // Add data
-            chart.data = [{
-              "year": "1",
-              "frt": 2.5,
-              "ftel": 2.5,
-              "fo": 2.1,
-            }, {
-              "year": "2",
-              "frt": 2,
-              "ftel": 1,
-              "fo": 2.2,
-            }, {
-              "year": "3",
-              "frt": 4,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "4",
-              "frt": 2.6,
-              "ftel": 2,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "5",
-              "frt": 2,
-              "ftel": 4,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "6",
-              "frt": 2.6,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "7",
-              "frt": 3,
-              "ftel": 1,
-              "fo": 2.2,
-            }, {
-               }, {
-              "year": "8",
-              "frt": 1,
-              "ftel": 2,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "9",
-              "frt": 3,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "10",
-              "frt": 2,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "11",
-              "frt": 5,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "12",
-              "frt": 4,
-              "ftel": 5,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "13",
-              "frt": 3,
-              "ftel": 5,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "14",
-              "frt": 4,
-              "ftel": 1,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "15",
-              "frt": 3,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "16",
-              "frt": 1,
-              "ftel": 5,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "17",
-              "frt": 5,
-              "ftel": 4,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "18",
-              "frt": 2,
-              "ftel": 2,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "19",
-              "frt": 3,
-              "ftel": 4,
-              "fo": 2.2,
-            }, {
-               }, {
-              "year": "20",
-              "frt": 1,
-              "ftel": 6,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "21",
-              "frt": 2,
-              "ftel": 7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "22",
-              "frt": 4,
-              "ftel": 5,
-              "fo": 2.2,
-            }, {
-               }, {
-              "year": "23",
-              "frt": 2,
-              "ftel": 2,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "24",
-              "frt": 3,
-              "ftel": 4,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "25",
-              "frt": 2,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "26",
-              "frt": 1,
-              "ftel": 2.7,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "27",
-              "frt": 2,
-              "ftel": 4,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "28",
-              "frt": 3,
-              "ftel": 6,
-              "fo": 2.2,
-            }, {
-            }, {
-              "year": "29",
-              "frt": 5,
-              "ftel": 2,
-              "fo": 2.2,
-            }, {
-              "year": "30",
-              "frt": 2.8,
-              "ftel": 2.9,
-              "fo": 2.4,
-            }];
+               // Add data
+               chart.data = [
+                  {
+                    "year": 1,
+                    "frt": 2.5,
+                    "ftel": 2.5,
+                    "fo": 2.1,
+                    "none": 0
+                  }, {
+                    "year": 2,
+                    "frt": 2,
+                    "ftel": 1,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                    "year": 3,
+                    "frt": 4,
+                    "ftel": 2.7,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 4,
+                    "frt": 2.6,
+                    "ftel": 2,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 5,
+                    "frt": 2,
+                    "ftel": 4,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 6,
+                    "frt": 2.6,
+                    "ftel": 2.7,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {                   
+                    "year": 7,
+                    "frt": 2.8,
+                    "ftel": 2.9,
+                    "fo": 2.4,
+                    "none": 0
+                  }
+               ];
 
-            // Create axes
-            var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-            categoryAxis.dataFields.category = "year";
-            categoryAxis.renderer.grid.template.location = 0;
+               // Create axes
+               // Trục ngang
+               var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+               categoryAxis.dataFields.category = "year";
+               categoryAxis.Interval = 1;
+               categoryAxis.IsLabelAutoFit = true; 
+               categoryAxis.renderer.minGridDistance = 20;
+               categoryAxis.renderer.grid.template.location = 0;
+
+               // Trục đứng
+               var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+               valueAxis.renderer.inside = true;
+               valueAxis.min = 0;
+               //valueAxis.renderer.labels.template.disabled = true;
+               valueAxis.max = 12;
+               valueAxis.strictMinMax = true;
+               valueAxis.renderer.minGridDistance = 30;
+
+               valueAxis.extraMax = 0.1;
+               valueAxis.calculateTotals = true;
 
 
-            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-            valueAxis.renderer.inside = true;
-            valueAxis.renderer.labels.template.disabled = true;
-            valueAxis.min = 0;
-            valueAxis.max = 12;
-            valueAxis.strictMinMax = true;
-            valueAxis.renderer.minGridDistance = 30;  
+               // Create series
+               function createSeries(field, name) {
+                 
+                 // Set up series
+                 var series = chart.series.push(new am4charts.ColumnSeries());
+                 series.name = name;
+                 series.dataFields.valueY = field; 
+                 series.dataFields.categoryX = "year";
+                 series.sequencedInterpolation = true;
+                 
+                 // Make it stacked
+                 series.stacked = true;
+                 
+                 // Configure columns
+                 series.columns.template.width = am4core.percent(60);
+                 series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+                 
+                 // Add label
+                 var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+                 labelBullet.label.text = "{valueY}";
+                 labelBullet.locationY = 0.5;
+                 labelBullet.label.hideOversized = true;
+
+                 return series;
+               }
 
 
-            // Create series
-            function createSeries(field, name) {
-              
-              // Set up series
-              var series = chart.series.push(new am4charts.ColumnSeries());
-              series.name = name;
-              series.dataFields.valueY = field;
-              series.dataFields.categoryX = "year";
-              series.sequencedInterpolation = true;
-              
-              // Make it stacked
-              series.stacked = true;
-              
-              // Configure columns
-              series.columns.template.width = am4core.percent(60);
-              series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
-              
-              // Add label
-              var labelBullet = series.bullets.push(new am4charts.LabelBullet());
-              labelBullet.label.text = "{valueY}";
-              labelBullet.locationY = 0.5;
-              labelBullet.label.hideOversized = true;
-              
-              return series;
-            }
+               createSeries("frt", "FRT");
+               createSeries("ftel", "FTEL");
+               createSeries("fo", "FO");
 
-            createSeries("frt", "FRT");
-            createSeries("ftel", "FTEL");
-            createSeries("fo", "FO");
 
-            // Legend
-            chart.legend = new am4charts.Legend();
+               // Create series for total
+               var totalSeries = chart.series.push(new am4charts.ColumnSeries());
+               totalSeries.dataFields.valueY = "none";
+               totalSeries.dataFields.categoryX = "year";
+               totalSeries.stacked = true;
+               totalSeries.hiddenInLegend = true;
+               totalSeries.columns.template.strokeOpacity = 0;
+
+               var totalBullet = totalSeries.bullets.push(new am4charts.LabelBullet());
+               totalBullet.dy = -20;
+               totalBullet.label.text = "{valueY.total}";
+               totalBullet.label.background.fill = totalSeries.stroke;
+               totalBullet.label.background.fillOpacity = 0.2;
+               totalBullet.label.padding(5, 10, 5, 10);
+               // Legend
+               chart.legend = new am4charts.Legend();
 
             }); // end am4core.ready()
 
