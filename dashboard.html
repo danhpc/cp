@@ -398,6 +398,9 @@
    			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
    			var series = chart.series.push(new am4plugins_venn.VennSeries())
 
+            //Hide logo
+            chart.logo.disabled = true;
+
    			series.dataFields.category = "name";
    			series.dataFields.value = "value";
    			series.dataFields.intersections = "sets";
@@ -407,6 +410,151 @@
    			chart.legend.marginTop = 40; 
             chart.legend.align = "right";
             chart.legend.position = "right";
+
+
+            //Chart Line
+            // Themes begin
+               am4core.useTheme(am4themes_animated);
+               // Themes end
+
+               // Create chart instance
+               var chart = am4core.create("chartline", am4charts.XYChart);
+
+               //Hide logo
+               chart.logo.disabled = true;
+
+               chart.maskBullets = false;
+               chart.numberFormatter.numberFormat = "#.#";
+
+               // Add data
+               chart.data = [
+                  {
+                    "year": 1,
+                    "frt": 2.5,
+                    "ftel": 2.5,
+                    "fo": 2.1,
+                    "none": 0
+                  }, {
+                    "year": 2,
+                    "frt": 2,
+                    "ftel": 1,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                    "year": 3,
+                    "frt": 4,
+                    "ftel": 2.7,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 4,
+                    "frt": 2.6,
+                    "ftel": 2,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 5,
+                    "frt": 2,
+                    "ftel": 4,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {
+                  }, {
+                    "year": 6,
+                    "frt": 2.6,
+                    "ftel": 2.7,
+                    "fo": 2.2,
+                    "none": 0
+                  }, {                   
+                    "year": 7,
+                    "frt": 2.8,
+                    "ftel": 2.9,
+                    "fo": 2.4,
+                    "none": 0
+                  }
+               ];
+
+               // Create axes
+               // Trục ngang
+               var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+               categoryAxis.dataFields.category = "year";
+               categoryAxis.Interval = 1;
+               categoryAxis.IsLabelAutoFit = true; 
+               categoryAxis.renderer.minGridDistance = 20;
+               categoryAxis.renderer.grid.template.location = 0;
+
+               // Trục đứng
+               var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+               valueAxis.renderer.inside = true;
+               valueAxis.min = 0;
+               //valueAxis.renderer.labels.template.disabled = true;
+               valueAxis.max = 12;
+               valueAxis.strictMinMax = true;
+               valueAxis.renderer.minGridDistance = 30;
+
+               valueAxis.extraMax = 0.1;
+               valueAxis.calculateTotals = true;
+
+               // Set up valueAxis title 
+               valueAxis.paddingLeft = -20;
+               valueAxis.paddingRight = 30;
+               valueAxis.layout = "absolute";             
+               valueAxis.title.rotation = 0;
+               valueAxis.title.align = "left";
+               valueAxis.title.valign = "top";
+               valueAxis.title.dy = 0; 
+
+
+               // Create series
+               function createSeries(field, name) {
+                 
+                 // Set up series
+                 var series = chart.series.push(new am4charts.ColumnSeries());
+                 series.name = name;
+                 series.dataFields.valueY = field; 
+                 series.dataFields.categoryX = "year";
+                 series.sequencedInterpolation = true;
+                 
+                 // Make it stacked
+                 series.stacked = true;
+                 
+                 // Configure columns
+                 series.columns.template.width = am4core.percent(60);
+                 series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+                 
+                 // Add label
+                 var labelBullet = series.bullets.push(new am4charts.LabelBullet());
+                 labelBullet.label.text = "{valueY}";
+                 labelBullet.locationY = 0.5;
+                 labelBullet.label.hideOversized = true;
+
+                 return series;
+               }
+
+
+               createSeries("frt", "FRT");
+               createSeries("ftel", "FTEL");
+               createSeries("fo", "FO");
+
+
+               // Create series for total
+               var totalSeries = chart.series.push(new am4charts.ColumnSeries());
+               totalSeries.dataFields.valueY = "none";
+               totalSeries.dataFields.categoryX = "year";
+               totalSeries.stacked = true;
+               totalSeries.hiddenInLegend = true;
+               totalSeries.columns.template.strokeOpacity = 0;
+
+               var totalBullet = totalSeries.bullets.push(new am4charts.LabelBullet());
+               totalBullet.dy = -20;
+               totalBullet.label.text = "{valueY.total}";
+               totalBullet.label.background.fill = totalSeries.stroke;
+               totalBullet.label.background.fillOpacity = 0.2;
+               totalBullet.label.padding(5, 10, 5, 10);
+               // Legend
+               chart.legend = new am4charts.Legend();
 
    		}); // end am4core.ready()
 
@@ -565,142 +713,6 @@
                //chart.cursor.lineY.disabled = true;
 
             //}); // end am4core.ready()
-
-
-            am4core.ready(function() {
-
-               // Themes begin
-               am4core.useTheme(am4themes_animated);
-               // Themes end
-
-               // Create chart instance
-               var chart = am4core.create("chartline", am4charts.XYChart);
-
-               chart.maskBullets = false;
-               chart.numberFormatter.numberFormat = "#.#";
-
-               // Add data
-               chart.data = [
-                  {
-                    "year": 1,
-                    "frt": 2.5,
-                    "ftel": 2.5,
-                    "fo": 2.1,
-                    "none": 0
-                  }, {
-                    "year": 2,
-                    "frt": 2,
-                    "ftel": 1,
-                    "fo": 2.2,
-                    "none": 0
-                  }, {
-                    "year": 3,
-                    "frt": 4,
-                    "ftel": 2.7,
-                    "fo": 2.2,
-                    "none": 0
-                  }, {
-                  }, {
-                    "year": 4,
-                    "frt": 2.6,
-                    "ftel": 2,
-                    "fo": 2.2,
-                    "none": 0
-                  }, {
-                  }, {
-                    "year": 5,
-                    "frt": 2,
-                    "ftel": 4,
-                    "fo": 2.2,
-                    "none": 0
-                  }, {
-                  }, {
-                    "year": 6,
-                    "frt": 2.6,
-                    "ftel": 2.7,
-                    "fo": 2.2,
-                    "none": 0
-                  }, {                   
-                    "year": 7,
-                    "frt": 2.8,
-                    "ftel": 2.9,
-                    "fo": 2.4,
-                    "none": 0
-                  }
-               ];
-
-               // Create axes
-               // Trục ngang
-               var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-               categoryAxis.dataFields.category = "year";
-               categoryAxis.Interval = 1;
-               categoryAxis.IsLabelAutoFit = true; 
-               categoryAxis.renderer.minGridDistance = 20;
-               categoryAxis.renderer.grid.template.location = 0;
-
-               // Trục đứng
-               var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-               valueAxis.renderer.inside = true;
-               valueAxis.min = 0;
-               //valueAxis.renderer.labels.template.disabled = true;
-               valueAxis.max = 12;
-               valueAxis.strictMinMax = true;
-               valueAxis.renderer.minGridDistance = 30;
-
-               valueAxis.extraMax = 0.1;
-               valueAxis.calculateTotals = true;
-
-
-               // Create series
-               function createSeries(field, name) {
-                 
-                 // Set up series
-                 var series = chart.series.push(new am4charts.ColumnSeries());
-                 series.name = name;
-                 series.dataFields.valueY = field; 
-                 series.dataFields.categoryX = "year";
-                 series.sequencedInterpolation = true;
-                 
-                 // Make it stacked
-                 series.stacked = true;
-                 
-                 // Configure columns
-                 series.columns.template.width = am4core.percent(60);
-                 series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
-                 
-                 // Add label
-                 var labelBullet = series.bullets.push(new am4charts.LabelBullet());
-                 labelBullet.label.text = "{valueY}";
-                 labelBullet.locationY = 0.5;
-                 labelBullet.label.hideOversized = true;
-
-                 return series;
-               }
-
-
-               createSeries("frt", "FRT");
-               createSeries("ftel", "FTEL");
-               createSeries("fo", "FO");
-
-
-               // Create series for total
-               var totalSeries = chart.series.push(new am4charts.ColumnSeries());
-               totalSeries.dataFields.valueY = "none";
-               totalSeries.dataFields.categoryX = "year";
-               totalSeries.stacked = true;
-               totalSeries.hiddenInLegend = true;
-               totalSeries.columns.template.strokeOpacity = 0;
-
-               var totalBullet = totalSeries.bullets.push(new am4charts.LabelBullet());
-               totalBullet.dy = -20;
-               totalBullet.label.text = "{valueY.total}";
-               totalBullet.label.background.fill = totalSeries.stroke;
-               totalBullet.label.background.fillOpacity = 0.2;
-               totalBullet.label.padding(5, 10, 5, 10);
-               // Legend
-               chart.legend = new am4charts.Legend();
-
-            }); // end am4core.ready()
 
 		</script>
    </body>
