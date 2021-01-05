@@ -17,6 +17,7 @@
       <link href="css/multiple-select.min.css" rel="stylesheet">
       <!-- App css -->
       <link href="css/css-bootstrap.min.css" rel="stylesheet" type="text/css">
+      <link href="css/datatables-dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
       <link href="css/css-jquery-ui.min.css" rel="stylesheet">
       <link href="css/css-icons.min.css" rel="stylesheet" type="text/css">
       <link href="css/css-metisMenu.min.css" rel="stylesheet" type="text/css">
@@ -116,159 +117,555 @@
                         </div>
                         <!--end card-header-->
                         <div class="card-body bootstrap-select-1">
-                          
-                           <div class="d-flex align-items-center mb-4">
-                              <label for="" class="pr-2 m-0">Xem: </label>
-                              <select name="" id="select-id" multiple="multiple" class="custom-multiselect" >
-         								<option>FPT ID</option>
-         								<option>FRT</option>
-         								<option>F0</option>
-         								<option>FTEL</option>
-      							   </select>
-                              <!-- end col -->
+                           <div class="d-flex w-100">
+                              <div class="d-flex align-items-center ml-auto mb-4">
+                                 <label for="" class="pr-2 m-0">Filter by: </label>
+                                 <select name="" id="select-id" multiple="multiple" class="custom-multiselect" >
+            								<option>FPT ID</option>
+            								<option>FRT</option>
+            								<option>F0</option>
+            								<option>FTEL</option>
+         							   </select>
+                                 <!-- end col -->
+                              </div>
                            </div>
-                           
+
+                           <!--Pagination-->
+                           <div class="row align-items-center">
+                              <div class="col-sm-12 col-md-5">
+                                 <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                              </div>
+                              <div class="col-sm-12 col-md-7">
+                                 <div class="dataTables_paginate paging_simple_numbers float-right" id="datatable_paginate">
+                                    <ul class="pagination">
+                                       <li class="paginate_button page-item previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                       <li class="paginate_button page-item active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                       <li class="paginate_button page-item next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
+
                            <div class="row">
          							<div class="col-sm-12">
          								<table id="myTable" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="myTable_info">
          									<thead class="thead-light">
          										<tr>
-         											<th rowspan="2" class="">Profile</th>
-         											<th rowspan="2" >Create Date</th>
-                                          <th rowspan="2" >Update</th>
-         											<th rowspan="2" >Source</th>
+                                          <th rowspan="2" class="text-center">No</th>
+         											<th rowspan="2" class="">FPT ID</th>
+                                          <th rowspan="2" class="">User</th>
+                                          <th rowspan="2" class="">Email</th>
+                                          <th rowspan="2" class="">Phone</th>
+         											<th rowspan="2" >Created Date</th>
+                                          <th rowspan="2" >Last Updated</th>
+         											<th rowspan="2" class="text-center">Source</th>
          											<th colspan="3" class="text-center">Co-Owner</th>
          										</tr>
          										<tr>
-         											<th rowspan="2" class="text-center">FRT</th>
-         											<th rowspan="2" class="text-center">FO</th>
-         											<th rowspan="2" class="text-center">FTEL</th>
+         											<th rowspan="2" class="text-center p-1">FRT</th>
+         											<th rowspan="2" class="text-center p-1">FO</th>
+         											<th rowspan="2" class="text-center p-1">FTEL</th>
          										</tr>
          									</thead>
          									<tbody>
          										<tr>
+                                          <td class="text-center">1</td>
+                                          <td>19562</td>
          											<td>
                                              <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Donald Gardner
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
          											<td>20/3/2020</td>
          											<td>5/5/2020</td>
-         											<td>
+         											<td class="text-center">
                                              <span class="badge badge-soft-success">FRT</span>
                                           </td>
          											<td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck1" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck1"></label>
-                                                </div>
-                                             </div>         
+                                             <i class="fas fa-check"></i>       
                                           </td>
                                           <td></td>
-                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
          										</tr>
          										<tr>
+                                          <td class="text-center">2</td>
+                                          <td>18571</td>
          											<td>
                                              <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Frank M.Lyons
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
          											<td>11/6/2020</td>
          											<td>15/7/2020</td>
-         											<td>
+         											<td class="text-center">
                                              <span class="badge badge-soft-warning">FTEL</span>                      
                                           </td>
          											<td></td>
-                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
          											<td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck2" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck2"></label>
-                                                </div>
-                                             </div>                         
+                                             <i class="fas fa-check"></i>                        
                                           </td>
          										</tr>
                                        <tr>
+                                          <td class="text-center">3</td>
+                                          <td>17845</td>
                                           <td>
                                              <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Hyman M. Cross
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
                                           <td>21/6/2020</td>
                                           <td>3/7/2020</td>
-                                          <td>
+                                          <td class="text-center">
                                              <span class="badge badge-soft-warning">FTEL</span>             
                                           </td>
                                           <td></td>
                                           <td></td>
                                           <td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck3" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck3"></label>
-                                                </div>
-                                             </div>   
+                                             <i class="fas fa-check"></i> 
                                           </td>
                                        </tr>
                                        <tr>
+                                          <td class="text-center">4</td>
+                                          <td>15874</td>
                                           <td>
                                              <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Angelo E .Butler
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
                                           <td>30/4/2020</td>
                                           <td>1/6/2020</td>
-                                          <td>
+                                          <td class="text-center">
                                              <span class="badge badge-soft-info">FO</span>             
                                           </td>
                                           <td></td>
                                           <td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck4" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck4"></label>
-                                                </div>
-                                             </div>   
+                                             <i class="fas fa-check"></i> 
                                           </td>
                                           <td></td>
                                        </tr>
                                        <tr>
+                                          <td class="text-center">5</td>
+                                          <td>12578</td>
                                           <td>
                                              <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Robert C. Golding
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
                                           <td>20/3/2020</td>
                                           <td>5/5/2020</td>
-                                          <td>
+                                          <td class="text-center">
                                              <span class="badge badge-soft-success">FRT</span>   
                                           </td>
                                           <td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck5" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck5"></label>
-                                                </div>
-                                             </div>         
+                                             <i class="fas fa-check"></i>        
                                           </td>
                                           <td></td>
                                           <td></td>
                                        </tr>
                                        <tr>
+                                          <td class="text-center">6</td>
+                                          <td>25874</td>
                                           <td>
                                              <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
                                              Phillip T. Morse
                                           </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
                                           <td>8/4/2020</td>
                                           <td>2/6/2020</td>
-                                          <td>
+                                          <td class="text-center">
                                              <span class="badge badge-soft-info">FO</span>   
                                           </td>
                                           <td></td>
                                           <td class="text-center">
-                                             <div class="form-check-inline my-2">
-                                                <div class="custom-control custom-checkbox">
-                                                   <input type="checkbox" class="custom-control-input" id="customCheck6" data-parsley-multiple="groups" data-parsley-mincheck="2">
-                                                   <label class="custom-control-label" for="customCheck6"></label>
-                                                </div>
-                                             </div>   
+                                             <i class="fas fa-check"></i>
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">1</td>
+                                          <td>19562</td>
+                                          <td>
+                                             <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Donald Gardner
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>       
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">2</td>
+                                          <td>18571</td>
+                                          <td>
+                                             <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Frank M.Lyons
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>11/6/2020</td>
+                                          <td>15/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>                      
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>                        
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">3</td>
+                                          <td>17845</td>
+                                          <td>
+                                             <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Hyman M. Cross
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>21/6/2020</td>
+                                          <td>3/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>             
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">4</td>
+                                          <td>15874</td>
+                                          <td>
+                                             <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Angelo E .Butler
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>30/4/2020</td>
+                                          <td>1/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>             
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">5</td>
+                                          <td>12578</td>
+                                          <td>
+                                             <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Robert C. Golding
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>   
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>        
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">6</td>
+                                          <td>25874</td>
+                                          <td>
+                                             <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Phillip T. Morse
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>8/4/2020</td>
+                                          <td>2/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>   
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">1</td>
+                                          <td>19562</td>
+                                          <td>
+                                             <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Donald Gardner
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>       
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">2</td>
+                                          <td>18571</td>
+                                          <td>
+                                             <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Frank M.Lyons
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>11/6/2020</td>
+                                          <td>15/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>                      
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>                        
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">3</td>
+                                          <td>17845</td>
+                                          <td>
+                                             <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Hyman M. Cross
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>21/6/2020</td>
+                                          <td>3/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>             
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">4</td>
+                                          <td>15874</td>
+                                          <td>
+                                             <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Angelo E .Butler
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>30/4/2020</td>
+                                          <td>1/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>             
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">5</td>
+                                          <td>12578</td>
+                                          <td>
+                                             <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Robert C. Golding
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>   
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>        
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">6</td>
+                                          <td>25874</td>
+                                          <td>
+                                             <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Phillip T. Morse
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>8/4/2020</td>
+                                          <td>2/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>   
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">1</td>
+                                          <td>19562</td>
+                                          <td>
+                                             <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Donald Gardner
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>       
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">2</td>
+                                          <td>18571</td>
+                                          <td>
+                                             <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Frank M.Lyons
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>11/6/2020</td>
+                                          <td>15/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>                      
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>     
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>                        
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">3</td>
+                                          <td>17845</td>
+                                          <td>
+                                             <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Hyman M. Cross
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>21/6/2020</td>
+                                          <td>3/7/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-warning">FTEL</span>             
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">4</td>
+                                          <td>15874</td>
+                                          <td>
+                                             <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Angelo E .Butler
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>30/4/2020</td>
+                                          <td>1/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>             
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i> 
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">5</td>
+                                          <td>12578</td>
+                                          <td>
+                                             <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Robert C. Golding
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-success">FRT</span>   
+                                          </td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>        
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td class="text-center">6</td>
+                                          <td>25874</td>
+                                          <td>
+                                             <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Phillip T. Morse
+                                          </td>
+                                          <td>pcd@gmail.com</td>
+                                          <td>098574651</td>
+                                          <td>8/4/2020</td>
+                                          <td>2/6/2020</td>
+                                          <td class="text-center">
+                                             <span class="badge badge-soft-info">FO</span>   
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <i class="fas fa-check"></i>
                                           </td>
                                           <td></td>
                                        </tr>
@@ -277,6 +674,27 @@
          							</div>
          						</div>
 						         <!-- end row -->
+
+                           <!--Pagination-->
+                           <div class="row align-items-center mt-3">
+                              <div class="col-sm-12 col-md-5">
+                                 <div class="dataTables_info" id="datatable_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                              </div>
+                              <div class="col-sm-12 col-md-7">
+                                 <div class="dataTables_paginate paging_simple_numbers float-right" id="datatable_paginate">
+                                    <ul class="pagination">
+                                       <li class="paginate_button page-item previous disabled" id="datatable_previous"><a href="#" aria-controls="datatable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                       <li class="paginate_button page-item active"><a href="#" aria-controls="datatable" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                       <li class="paginate_button page-item "><a href="#" aria-controls="datatable" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                       <li class="paginate_button page-item next" id="datatable_next"><a href="#" aria-controls="datatable" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li>
+                                    </ul>
+                                 </div>
+                              </div>
+                           </div>
                         </div>
                         <!-- end card-body -->
                      </div>
@@ -303,6 +721,7 @@
       <script src="js/js-simplebar.min.js"></script>
       <script src="js/js-jquery-ui.min.js"></script>
       <script src="js/js-moment.js"></script>
+      <script src="js/datatables-dataTables.bootstrap4.min.js"></script>
       
       <!-- Plugins js -->
       <script src="js/multiple-select.min.js"></script>
