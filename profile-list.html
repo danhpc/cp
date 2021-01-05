@@ -130,93 +130,150 @@
                            
                            <div class="row">
          							<div class="col-sm-12">
-                                 <div class="table-responsive">
-                                    <table id="myTable" class="table dataTable no-footer" role="grid" aria-describedby="myTable_info">
-                                       <thead class="thead-light">
-                                          <tr>
-                                             <th>No.</th>
-                                             <th>Profile</th>
-                                             <th>Create date</th>
-                                             <th>Update</th>
-                                             <th>Source</th>
-                                          </tr>
-                                       </thead>
-                                       <tbody>
-                                          <tr>
-                                             <td>1</td>
-                                             <td>
-                                                <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>20/03/2020</td>
-                                             <td>5/5/2020</td>
-                                             <td>
-                                                <span class="badge badge-soft-success">FRT</span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>2</td>
-                                             <td>
-                                                <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>11/6/2020</td>
-                                             <td>15/7/2020</td>
-                                             <td>
-                                                <span class="badge badge-soft-warning">FTEL</span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>3</td>
-                                             <td>
-                                                <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>21/6/2020</td>
-                                             <td>3/7/2020/td>
-                                             <td>
-                                                <span class="badge badge-soft-warning">FTEL</span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>4</td>
-                                             <td>
-                                                <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>30/4/2020</td>
-                                             <td>1/6/2020</td>
-                                             <td>
-                                                <span class="badge badge-soft-info">FO</span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>5</td>
-                                             <td>
-                                                <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>20/3/2020</td>
-                                             <td>5/5/2020</td>
-                                             <td>
-                                                 <span class="badge badge-soft-success">FRT</span>
-                                             </td>
-                                          </tr>
-                                          <tr>
-                                             <td>6</td>
-                                             <td>
-                                                <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
-                                                Donald Gardner
-                                             </td>
-                                             <td>8/4/2020</td>
-                                             <td>2/6/2020</td>
-                                             <td>
-                                                 <span class="badge badge-soft-info">FO</span>
-                                             </td>
-                                          </tr>
-                                       </tbody>
-                                    </table>
-                                 </div>
+         								<table id="myTable" class="table table-bordered dataTable no-footer" role="grid" aria-describedby="myTable_info">
+         									<thead class="thead-light">
+         										<tr>
+         											<th rowspan="2" class="">Profile</th>
+         											<th rowspan="2" >Create Date</th>
+                                          <th rowspan="2" >Update</th>
+         											<th rowspan="2" >Source</th>
+         											<th colspan="3" class="text-center">Co-Owner</th>
+         										</tr>
+         										<tr>
+         											<th rowspan="2" class="text-center">FRT</th>
+         											<th rowspan="2" class="text-center">FO</th>
+         											<th rowspan="2" class="text-center">FTEL</th>
+         										</tr>
+         									</thead>
+         									<tbody>
+         										<tr>
+         											<td>
+                                             <img src="images/users-user-1.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Donald Gardner
+                                          </td>
+         											<td>20/3/2020</td>
+         											<td>5/5/2020</td>
+         											<td>
+                                             <span class="badge badge-soft-success">FRT</span>
+                                          </td>
+         											<td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck1" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck1"></label>
+                                                </div>
+                                             </div>         
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+         										</tr>
+         										<tr>
+         											<td>
+                                             <img src="images/users-user-2.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Frank M.Lyons
+                                          </td>
+         											<td>11/6/2020</td>
+         											<td>15/7/2020</td>
+         											<td>
+                                             <span class="badge badge-soft-warning">FTEL</span>                      
+                                          </td>
+         											<td></td>
+                                          <td></td>
+         											<td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck2" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck2"></label>
+                                                </div>
+                                             </div>                         
+                                          </td>
+         										</tr>
+                                       <tr>
+                                          <td>
+                                             <img src="images/users-user-3.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Hyman M. Cross
+                                          </td>
+                                          <td>21/6/2020</td>
+                                          <td>3/7/2020</td>
+                                          <td>
+                                             <span class="badge badge-soft-warning">FTEL</span>             
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck3" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck3"></label>
+                                                </div>
+                                             </div>   
+                                          </td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <img src="images/users-user-4.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Angelo E .Butler
+                                          </td>
+                                          <td>30/4/2020</td>
+                                          <td>1/6/2020</td>
+                                          <td>
+                                             <span class="badge badge-soft-info">FO</span>             
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck4" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck4"></label>
+                                                </div>
+                                             </div>   
+                                          </td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <img src="images/users-user-5.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Robert C. Golding
+                                          </td>
+                                          <td>20/3/2020</td>
+                                          <td>5/5/2020</td>
+                                          <td>
+                                             <span class="badge badge-soft-success">FRT</span>   
+                                          </td>
+                                          <td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck5" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck5"></label>
+                                                </div>
+                                             </div>         
+                                          </td>
+                                          <td></td>
+                                          <td></td>
+                                       </tr>
+                                       <tr>
+                                          <td>
+                                             <img src="images/users-user-6.jpg" alt="" class="thumb-sm rounded-circle mr-2">
+                                             Phillip T. Morse
+                                          </td>
+                                          <td>8/4/2020</td>
+                                          <td>2/6/2020</td>
+                                          <td>
+                                             <span class="badge badge-soft-info">FO</span>   
+                                          </td>
+                                          <td></td>
+                                          <td class="text-center">
+                                             <div class="form-check-inline my-2">
+                                                <div class="custom-control custom-checkbox">
+                                                   <input type="checkbox" class="custom-control-input" id="customCheck6" data-parsley-multiple="groups" data-parsley-mincheck="2">
+                                                   <label class="custom-control-label" for="customCheck6"></label>
+                                                </div>
+                                             </div>   
+                                          </td>
+                                          <td></td>
+                                       </tr>
+         									</tbody>
+         								</table>
          							</div>
          						</div>
 						         <!-- end row -->
