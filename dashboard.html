@@ -584,12 +584,12 @@
               "fo": 2.1,
             }, {
               "year": "2",
-              "frt": 2.6,
+              "frt": 2,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
               "year": "3",
-              "frt": 2.6,
+              "frt": 4,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
@@ -601,8 +601,8 @@
             }, {
             }, {
               "year": "5",
-              "frt": 2.6,
-              "ftel": 2.7,
+              "frt": 2,
+              "ftel": 4,
               "fo": 2.2,
             }, {
             }, {
@@ -613,49 +613,49 @@
             }, {
             }, {
               "year": "7",
-              "frt": 2.6,
+              "frt": 3,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
                }, {
               "year": "8",
-              "frt": 2.6,
+              "frt": 1,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
             }, {
               "year": "9",
-              "frt": 2.6,
+              "frt": 3,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
             }, {
               "year": "10",
-              "frt": 2.6,
+              "frt": 2,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
             }, {
               "year": "11",
-              "frt": 2.6,
+              "frt": 5,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
             }, {
               "year": "12",
-              "frt": 2.6,
+              "frt": 4,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
             }, {
               "year": "13",
-              "frt": 2.6,
-              "ftel": 2.7,
+              "frt": 3,
+              "ftel": 5,
               "fo": 2.2,
             }, {
             }, {
               "year": "14",
-              "frt": 2.6,
+              "frt": 2,
               "ftel": 2.7,
               "fo": 2.2,
             }, {
@@ -675,6 +675,10 @@
             valueAxis.renderer.inside = true;
             valueAxis.renderer.labels.template.disabled = true;
             valueAxis.min = 0;
+            valueAxis.max = 10;
+            valueAxis.strictMinMax = true;
+            valueAxis.renderer.minGridDistance = 30;  
+
 
             // Create series
             function createSeries(field, name) {
