@@ -97,8 +97,6 @@ options = {
 	}
 };
 (chart = new ApexCharts(document.querySelector("#apex_line2"), options)).render();
-(chart = new ApexCharts(document.querySelector("#apex_line2_1"), options)).render();
-(chart = new ApexCharts(document.querySelector("#apex_line2_2"), options)).render();
 options = {
 	chart: {
 		height: 360,
