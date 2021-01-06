@@ -124,8 +124,8 @@
                </div>
                <!--end row--><!-- end page title end breadcrumb -->
                <div class="row justify-content-center">
-                  <div class="col-md-6 col-lg-3">
-                     <div class="card report-card">
+                  <div class="col-md-6 col-lg-6 col-xl-3 d-flex">
+                     <div class="card report-card w-100">
                         <div class="card-body">
                            <div class="row d-flex justify-content-center">
                               <div class="col">
@@ -145,8 +145,8 @@
                      <!--end card-->
                   </div>
                   <!--end col-->
-                  <div class="col-md-6 col-lg-3">
-                     <div class="card report-card">
+                  <div class="col-md-6 col-lg-6 col-xl-3 d-flex">
+                     <div class="card report-card w-100">
                         <div class="card-body">
                            <div class="row d-flex justify-content-center">
                               <div class="col">
@@ -166,8 +166,8 @@
                      <!--end card-->
                   </div>
                   <!--end col-->
-                  <div class="col-md-6 col-lg-3">
-                     <div class="card report-card">
+                  <div class="col-md-6 col-lg-6 col-xl-3 d-flex">
+                     <div class="card report-card w-100">
                         <div class="card-body">
                            <div class="row d-flex justify-content-center">
                               <div class="col">
@@ -187,8 +187,8 @@
                      <!--end card-->
                   </div>
                   <!--end col-->
-                  <div class="col-md-6 col-lg-3">
-                     <div class="card report-card">
+                  <div class="col-md-6 col-lg-6 col-xl-3 d-flex">
+                     <div class="card report-card w-100">
                         <div class="card-body">
                            <div class="row d-flex justify-content-center">
                               <div class="col">
@@ -425,6 +425,7 @@
             series.slices.template.tooltipText = "{category}: [bold]{value}[/]";
             series.slices.template.propertyFields.fill = "color";
 
+
    			chart.legend = new am4charts.Legend();
    			chart.legend.marginTop = 30; 
             chart.legend.align = "center";
@@ -564,10 +565,11 @@
                  series.columns.template.width = am4core.percent(60);
                  // Configure columns
                  if(flag==1){
-                  series.tooltip.pointerOrientation = "down";
+                 series.tooltip.pointerOrientation = "down";
                   //series.tooltip.dy = -70;
-                  series.columns.template.tooltipY = -35;
-                 series.columns.template.tooltipText = "FRT[/][color: #fff;]: {frt}"+"\nFTEL[/][color: #fff;]: {ftel}"+"\nFO[/][color: #fff;]: {fo}";}
+                 series.columns.template.tooltipY = -35;
+                 series.columns.template.tooltipText = "FO: {fo}"+"\nFTEL: {ftel}"+"\nFRT: {frt}";
+                }
                  
                  // Add label
                  var labelBullet = series.bullets.push(new am4charts.LabelBullet());
