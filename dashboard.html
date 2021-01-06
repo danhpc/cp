@@ -409,7 +409,7 @@
                { name: "FO & FRT", value: 4, sets: ["FRT", "FO"] },
                { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"]},
 
-               { name: "GENERAL", value: 1, sets: ["FRT", "FTEL", "FO"]}
+               { name: "GENERAL", value: 1, sets: ["FRT", "FTEL", "FO"], color:am4core.color("#efb940")}
             ];
 
    			var chart = am4core.create("chartdiv", am4plugins_venn.VennDiagram);
@@ -423,17 +423,20 @@
    			series.dataFields.intersections = "sets";
    			series.data = data;
             series.slices.template.tooltipText = "{category}: [bold]{value}[/]";
+            series.slices.template.propertyFields.fill = "color";
 
    			chart.legend = new am4charts.Legend();
    			chart.legend.marginTop = 30; 
             chart.legend.align = "center";
             chart.legend.position = "bottom";
 
+
             // Size Legend
             var markerTemplate = chart.legend.markers.template;
             markerTemplate.width = 15;
             markerTemplate.height = 15;
 
+            
 
 
             //Chart Line
@@ -464,46 +467,46 @@
                // Add data
                chart.data = [
                   {
-                    "year": "11/6",
+                    "date": "11/6",
                     "frt": 50,
                     "ftel": 60, 
                     "fo": 55,
                     "none": 0
                   }, {
-                    "year": "12/6",
+                    "date": "12/6",
                     "frt": 45,
                     "ftel": 30,
                     "fo": 35,
                     "none": 0
                   }, {
-                    "year": "13/6",
+                    "date": "13/6",
                     "frt": 20,
                     "ftel": 28,
                     "fo": 44,
                     "none": 0
                   }, {
                   }, {
-                    "year": "14/6",
+                    "date": "14/6",
                     "frt": 70,
                     "ftel": 25,
                     "fo": 36,
                     "none": 0
                   }, {
                   }, {
-                    "year": "15/6",
+                    "date": "15/6",
                     "frt": 52,
                     "ftel": 68,
                     "fo": 20,
                     "none": 0
                   }, {
                   }, {
-                    "year": "16/6",
+                    "date": "16/6",
                     "frt": 36,
                     "ftel": 48,
                     "fo": 69,
                     "none": 0
                   }, {                   
-                    "year": "17/6",
+                    "date": "17/6",
                     "frt": 50,
                     "ftel": 63,
                     "fo": 24,
@@ -511,10 +514,12 @@
                   }
                ];
 
+               chart.cursor = new am4charts.XYCursor();
+
                // Create axes
                // Trục ngang
                var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-               categoryAxis.dataFields.category = "year";
+               categoryAxis.dataFields.category = "date";
                categoryAxis.Interval = 1;
                categoryAxis.IsLabelAutoFit = true; 
                categoryAxis.renderer.minGridDistance = 20;
@@ -544,21 +549,25 @@
 
 
                // Create series
-               function createSeries(field, name) {
+               function createSeries(field, name, flag) {
                  
                  // Set up series
                  var series = chart.series.push(new am4charts.ColumnSeries());
                  series.name = name;
                  series.dataFields.valueY = field; 
-                 series.dataFields.categoryX = "year";
+                 series.dataFields.categoryX = "date";
                  series.sequencedInterpolation = true;
                  
                  // Make it stacked
                  series.stacked = true;
                  
-                 // Configure columns
                  series.columns.template.width = am4core.percent(60);
-                 series.columns.template.tooltipText = "FRT[/][color: #fff;]: {frt}"+"\nFTEL[/][color: #fff;]: {ftel}"+"\nFO[/][color: #fff;]: {fo}";
+                 // Configure columns
+                 if(flag==1){
+                  series.tooltip.pointerOrientation = "down";
+                  //series.tooltip.dy = -70;
+                  series.columns.template.tooltipY = -35;
+                 series.columns.template.tooltipText = "FRT[/][color: #fff;]: {frt}"+"\nFTEL[/][color: #fff;]: {ftel}"+"\nFO[/][color: #fff;]: {fo}";}
                  
                  // Add label
                  var labelBullet = series.bullets.push(new am4charts.LabelBullet());
@@ -570,15 +579,15 @@
                }
 
 
-               createSeries("frt", "FRT");
-               createSeries("ftel", "FTEL");
-               createSeries("fo", "FO");
+               createSeries("frt", "FRT", "0");
+               createSeries("ftel", "FTEL", "0");
+               createSeries("fo", "FO", "1");
 
 
                // Create series for total
                var totalSeries = chart.series.push(new am4charts.ColumnSeries());
                totalSeries.dataFields.valueY = "none";
-               totalSeries.dataFields.categoryX = "year";
+               totalSeries.dataFields.categoryX = "date";
                totalSeries.stacked = true;
                totalSeries.hiddenInLegend = true;
                totalSeries.columns.template.strokeOpacity = 0;
