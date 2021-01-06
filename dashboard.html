@@ -425,9 +425,11 @@
             series.slices.template.tooltipText = "{category}: [bold]{value}[/]";
 
    			chart.legend = new am4charts.Legend();
-   			chart.legend.marginTop = 40; 
-            chart.legend.align = "right";
-            chart.legend.position = "right";
+   			chart.legend.marginTop = 30; 
+            chart.legend.align = "center";
+            chart.legend.position = "bottom";
+
+
 
             //Chart Line
             // Themes begin
@@ -443,50 +445,55 @@
                chart.maskBullets = false;
                chart.numberFormatter.numberFormat = "#.#";
 
+               chart.legend = new am4charts.Legend();
+               chart.legend.marginTop = 30; 
+               chart.legend.align = "center";
+               chart.legend.position = "bottom";
+
 
                // Add data
                chart.data = [
                   {
-                    "year": 1,
+                    "year": "11/6",
                     "frt": 50,
                     "ftel": 60, 
                     "fo": 55,
                     "none": 0
                   }, {
-                    "year": 2,
+                    "year": "12/6",
                     "frt": 45,
                     "ftel": 30,
                     "fo": 35,
                     "none": 0
                   }, {
-                    "year": 3,
+                    "year": "13/6",
                     "frt": 20,
                     "ftel": 28,
                     "fo": 44,
                     "none": 0
                   }, {
                   }, {
-                    "year": 4,
+                    "year": "14/6",
                     "frt": 70,
                     "ftel": 25,
                     "fo": 36,
                     "none": 0
                   }, {
                   }, {
-                    "year": 5,
+                    "year": "15/6",
                     "frt": 52,
                     "ftel": 68,
                     "fo": 20,
                     "none": 0
                   }, {
                   }, {
-                    "year": 6,
+                    "year": "16/6",
                     "frt": 36,
                     "ftel": 48,
                     "fo": 69,
                     "none": 0
                   }, {                   
-                    "year": 7,
+                    "year": "17/6",
                     "frt": 50,
                     "ftel": 63,
                     "fo": 24,
@@ -541,7 +548,7 @@
                  
                  // Configure columns
                  series.columns.template.width = am4core.percent(60);
-                 series.columns.template.tooltipText = "[bold]frt[/]\n[font-size:14px]Day {categoryX}: {frt}"+"\n[bold]ftel[/]\n[font-size:14px]Day {categoryX}: {ftel}"+"\n[bold]Fo[/]\n[font-size:14px]Day {categoryX}: {fo}";
+                 series.columns.template.tooltipText = "FRT[/][color: #fff;]: {frt}"+"\nFTEL[/][color: #fff;]: {ftel}"+"\nFO[/][color: #fff;]: {fo}";
                  
                  // Add label
                  var labelBullet = series.bullets.push(new am4charts.LabelBullet());
@@ -572,12 +579,58 @@
                totalBullet.label.background.fill = totalSeries.stroke;
                totalBullet.label.background.fillOpacity = 0.2;
                totalBullet.label.padding(5, 10, 5, 10);
-               // Legend
-               chart.legend = new am4charts.Legend();
 
    		}); // end am4core.ready()
 
+         options = {
+            series: [{
+               name: "abc",
+            }],
 
+            stroke: {
+               width: [3]
+            },
+            dataLabels: {
+               enabled: !1
+            },
+            markers: {
+               size: 0
+            },
+            fill: {
+               type: "gradient",
+               gradient: {
+                  shadeIntensity: 1,
+                  inverseColors: !1,
+                  opacityFrom: .5,
+                  opacityTo: 0,
+                  stops: [0, 90, 100]
+               }
+            },
+            yaxis: {
+               labels: {
+                  formatter: function (e) {
+                     return (e / 1e6).toFixed(0)
+                  }
+               },
+               title: {
+                  text: "Price"
+               }
+            },
+            xaxis: {
+               type: "datetime"
+            },
+            tooltip: {
+               shared: !1,
+               y: {
+                  formatter: function (e) {
+                     return (e / 1e6).toFixed(0)
+                  }
+               }
+            }
+         };
+         (chart = new ApexCharts(document.querySelector("#apex_line2"), options)).render();
+         (chart = new ApexCharts(document.querySelector("#apex_line2_1"), options)).render();
+         (chart = new ApexCharts(document.querySelector("#apex_line2_2"), options)).render();
 		</script>
    </body>
 </html>
