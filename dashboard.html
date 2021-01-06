@@ -454,7 +454,7 @@
                chart.legend.marginTop = 30; 
                chart.legend.align = "center";
                chart.legend.position = "bottom";
-               
+
                // Size Legend
                var markerTemplate = chart.legend.markers.template;
                markerTemplate.width = 15;
@@ -635,7 +635,7 @@
       }
       options = {
          series: [{
-            name: "ABC",
+            name: "FRT",
             data: dates
          }],
          chart: {
@@ -693,7 +693,126 @@
          }
       };
       (chart = new ApexCharts(document.querySelector("#apex_line2_1"), options)).render();
+      options = {
+         series: [{
+            name: "FO",
+            data: dates
+         }],
+         chart: {
+            type: "area",
+            stacked: !1,
+            height: 350,
+            zoom: {
+               type: "x",
+               enabled: !0,
+               autoScaleYaxis: !0
+            },
+            toolbar: {
+               autoSelected: "zoom"
+            }
+         },
+         stroke: {
+            width: [3]
+         },
+         dataLabels: {
+            enabled: !1
+         },
+         markers: {
+            size: 0
+         },
+         fill: {
+            type: "gradient",
+            gradient: {
+               shadeIntensity: 1,
+               inverseColors: !1,
+               opacityFrom: .5,
+               opacityTo: 0,
+               stops: [0, 90, 100]
+            }
+         },
+         yaxis: {
+            labels: {
+               formatter: function (e) {
+                  return (e / 1e6).toFixed(0)
+               }
+            },
+            title: {
+               text: "Price"
+            }
+         },
+         xaxis: {
+            type: "datetime"
+         },
+         tooltip: {
+            shared: !1,
+            y: {
+               formatter: function (e) {
+                  return (e / 1e6).toFixed(0)
+               }
+            }
+         }
+      };
       (chart = new ApexCharts(document.querySelector("#apex_line2_2"), options)).render();
+      (chart = new ApexCharts(document.querySelector("#apex_line2_1"), options)).render();
+      options = {
+         series: [{
+            name: "FTEL",
+            data: dates
+         }],
+         chart: {
+            type: "area",
+            stacked: !1,
+            height: 350,
+            zoom: {
+               type: "x",
+               enabled: !0,
+               autoScaleYaxis: !0
+            },
+            toolbar: {
+               autoSelected: "zoom"
+            }
+         },
+         stroke: {
+            width: [3]
+         },
+         dataLabels: {
+            enabled: !1
+         },
+         markers: {
+            size: 0
+         },
+         fill: {
+            type: "gradient",
+            gradient: {
+               shadeIntensity: 1,
+               inverseColors: !1,
+               opacityFrom: .5,
+               opacityTo: 0,
+               stops: [0, 90, 100]
+            }
+         },
+         yaxis: {
+            labels: {
+               formatter: function (e) {
+                  return (e / 1e6).toFixed(0)
+               }
+            },
+            title: {
+               text: "Price"
+            }
+         },
+         xaxis: {
+            type: "datetime"
+         },
+         tooltip: {
+            shared: !1,
+            y: {
+               formatter: function (e) {
+                  return (e / 1e6).toFixed(0)
+               }
+            }
+         }
+      };
       (chart = new ApexCharts(document.querySelector("#apex_line2_3"), options)).render();
 		</script>
    </body>
