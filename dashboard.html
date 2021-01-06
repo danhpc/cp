@@ -407,7 +407,7 @@
 
                { name: "FRT & FTEL", value: 1, sets: ["FRT", "FTEL"]},
                { name: "FO & FRT", value: 4, sets: ["FRT", "FO"] },
-               { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"]},
+               { name: "FO & FTEL", value: 2, sets: ["FTEL", "FO"],},
 
                { name: "GENERAL", value: 1, sets: ["FRT", "FTEL", "FO"], color:am4core.color("#ffb822")}
             ];
@@ -472,18 +472,21 @@
                     "frt": 50,
                     "ftel": 60, 
                     "fo": 55,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {
                     "date": "12/6",
                     "frt": 45,
                     "ftel": 30,
                     "fo": 35,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {
                     "date": "13/6",
                     "frt": 20,
                     "ftel": 28,
                     "fo": 44,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {
                   }, {
@@ -491,6 +494,7 @@
                     "frt": 70,
                     "ftel": 25,
                     "fo": 36,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {
                   }, {
@@ -498,6 +502,7 @@
                     "frt": 52,
                     "ftel": 68,
                     "fo": 20,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {
                   }, {
@@ -505,12 +510,14 @@
                     "frt": 36,
                     "ftel": 48,
                     "fo": 69,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }, {                   
                     "date": "17/6",
                     "frt": 50,
                     "ftel": 63,
                     "fo": 24,
+                    //"color": am4core.color("#F00"),
                     "none": 0
                   }
                ];
@@ -566,9 +573,18 @@
                  // Configure columns
                  if(flag==1){
                  series.tooltip.pointerOrientation = "down";
-                  //series.tooltip.dy = -70;
+                 series.tooltip.getFillFromObject = false;
+                 
+
+                 //Color text - stroke & background
+                 series.tooltip.background.fill = am4core.color("#000");
+                 //series.tooltip.background.propertyFields.stroke = "color"; 
+                 //series.tooltip.label.propertyFields.fill = "color";
+
+                 //series.tooltip.dy = -70;
                  series.columns.template.tooltipY = -35;
-                 series.columns.template.tooltipText = "FO: {fo}"+"\nFTEL: {ftel}"+"\nFRT: {frt}";
+                 series.columns.template.tooltipText = "FO:{fo}"+"\nFTEL: {ftel}"+"\nFRT: {frt}";
+                
                 }
                  
                  // Add label
