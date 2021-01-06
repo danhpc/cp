@@ -620,17 +620,24 @@
    		}); // end am4core.ready()
 
 
+
+
          // Chart FTT Members
          var options = {
          series: [{
             name: "Desktops",
             data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
          }],
+         
          chart: {
             height: 350,
             type: "line",
+            toolbar: {
+              show: false,
+            },
             zoom: {
-               enabled: !1
+               enabled: false,
+               //enabled: !1
             }
          },
          colors: ["#008ffb"],
@@ -660,9 +667,10 @@
          var innerArr = [ts2 += 864e5, dataSeries[1][i].value];
          dates.push(innerArr)
       }
+
       options = {
          series: [{
-            name: "FRT",
+            name: "Profile",
             data: dates
          }],
          chart: {
@@ -675,7 +683,8 @@
                autoScaleYaxis: !0
             },
             toolbar: {
-               autoSelected: "zoom"
+               show: false,
+               //autoSelected: "zoom"
             }
          },
          stroke: {
@@ -720,22 +729,28 @@
          }
       };
       (chart = new ApexCharts(document.querySelector("#apex_line2_1"), options)).render();
+
+
       options = {
          series: [{
-            name: "FO",
+            name: "Profile",
             data: dates
          }],
          chart: {
             type: "area",
             stacked: !1,
             height: 350,
+            toolbar: {
+              show: false,
+            },
             zoom: {
                type: "x",
                enabled: !0,
                autoScaleYaxis: !0
             },
             toolbar: {
-               autoSelected: "zoom"
+               show: false,
+               //autoSelected: "zoom"
             }
          },
          stroke: {
@@ -782,20 +797,24 @@
       (chart = new ApexCharts(document.querySelector("#apex_line2_2"), options)).render();
       options = {
          series: [{
-            name: "FTEL",
+            name: "Profile",
             data: dates
          }],
          chart: {
             type: "area",
             stacked: !1,
             height: 350,
+            toolbar: {
+              show: false,
+            },
             zoom: {
                type: "x",
                enabled: !0,
                autoScaleYaxis: !0
             },
             toolbar: {
-               autoSelected: "zoom"
+               show: false,
+               //autoSelected: "zoom"
             }
          },
          stroke: {
