@@ -449,7 +449,7 @@
                   {
                     "year": 1,
                     "frt": 50,
-                    "ftel": 60,
+                    "ftel": 60, 
                     "fo": 55,
                     "none": 0
                   }, {
@@ -541,7 +541,7 @@
                  
                  // Configure columns
                  series.columns.template.width = am4core.percent(60);
-                 series.columns.template.tooltipText = "[bold]{name}[/]\n[font-size:14px]{categoryX}: {valueY}";
+                 series.columns.template.tooltipText = "[bold]frt[/]\n[font-size:14px]Day {categoryX}: {frt}"+"\n[bold]ftel[/]\n[font-size:14px]Day {categoryX}: {ftel}"+"\n[bold]Fo[/]\n[font-size:14px]Day {categoryX}: {fo}";
                  
                  // Add label
                  var labelBullet = series.bullets.push(new am4charts.LabelBullet());

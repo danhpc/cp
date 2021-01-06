@@ -120,12 +120,14 @@
                            <div class="d-flex w-100">
                               <div class="d-flex align-items-center ml-auto mb-4">
                                  <label for="" class="pr-2 m-0">Filter by: </label>
-                                 <select name="" id="select-id" multiple="multiple" class="custom-multiselect" >
-            								<option>FPT ID</option>
-            								<option>FRT</option>
-            								<option>F0</option>
-            								<option>FTEL</option>
-         							   </select>
+                                 <div class="select-id">
+                                    <select name="" id="select-id" multiple="multiple" class="custom-multiselect" >
+                                       <option selected="">FPT ID</option>
+               								<option selected="">FRT</option>
+               								<option selected="">F0</option>
+               								<option selected="">FTEL</option>
+            							   </select>
+                                 </div>
                                  <!-- end col -->
                               </div>
                            </div>
@@ -736,8 +738,10 @@
       <script src="js/js-app.js"></script>
       <script>
 		$(function () {
-			$('#select-id').multipleSelect()
-		})
+			$('#select-id').multipleSelect({
+            SelectAll: false,
+          });
+		});
       </script>
    </body>
 </html>
