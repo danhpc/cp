@@ -530,6 +530,7 @@
                // Trục ngang
                var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
                categoryAxis.dataFields.category = "date";
+               categoryAxis.tooltip.disabled = true;
                categoryAxis.Interval = 1;
                categoryAxis.IsLabelAutoFit = true; 
                categoryAxis.renderer.minGridDistance = 20;
@@ -539,6 +540,7 @@
                // Trục đứng
                var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
                valueAxis.renderer.inside = true;
+               valueAxis.tooltip.disabled = true;
                valueAxis.min = 0;
                //valueAxis.renderer.labels.template.disabled = true;
                valueAxis.max = 250;
@@ -585,7 +587,7 @@
 
                  //series.tooltip.dy = -70;
                  series.columns.template.tooltipY = -35;
-                 series.columns.template.tooltipText = "FO: {fo}"+"\nFTEL: {ftel}"+"\nFRT: {frt}";
+                 series.columns.template.tooltipText = "TOTAL: {valueY.total} "+"\nFO: {fo}"+"\nFTEL: {ftel}"+"\nFRT: {frt}";
                 
                 }
                  
